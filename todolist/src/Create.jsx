@@ -16,7 +16,7 @@ function Create({ setTodos }) {
     setError('');  
 
     try {
-      const result = await axios.post('http://localhost:3001/add', { task: task });
+      const result = await axios.post('https://to-do-backend-tv1z.onrender.com/add', { task: task });
       console.log(result.data);
       setTodos(prevTodos => [...prevTodos, result.data]);  
       setTask(''); 
