@@ -11,7 +11,7 @@ function Home() {
   useEffect(() => {
     const fetchTodos = async () => {
       try {
-        const result = await axios.get('http://localhost:3001/get');
+        const result = await axios.get('https://to-do-backend-tv1z.onrender.com/get');
         setTodos(result.data);
         setLoading(false);
       } catch (err) {
@@ -27,7 +27,7 @@ function Home() {
  
   const handleComplete = async (id) => {
     try {
-      const result = await axios.put(`http://localhost:3001/update/${id}`);
+      const result = await axios.put(`https://to-do-backend-tv1z.onrender.com/update/${id}`);
       setTodos(prevTodos =>
         prevTodos.map(todo =>
           todo._id === id ? { _id: todo._id, task: todo.task, done: true } : todo
@@ -40,7 +40,7 @@ function Home() {
 
   const handleDelete = async (id) => {
   try {
-    await axios.delete(`http://localhost:3001/delete/${id}`);
+    await axios.delete(`https://to-do-backend-tv1z.onrender.com/delete/${id}`);
     
     setTodos(prevTodos => prevTodos.filter(todo => todo._id !== id));
     
